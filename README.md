@@ -11,10 +11,15 @@ e-commerce company
 Introduction
 
 ● Calculate the revenue of each month
+
 ● Find the product under each category
+
 ● Find the event type
+
 ● Find the max brand of each month
+
 ● Find the top 10 user
+
 
 Total revenue of October
 
