@@ -27,9 +27,11 @@ Introduction
 Find the total revenue generated due to purchases made in October.
 SELECT ROUND(SUM(price),2) as TotalRev_October
 
-**FROM table
+FROM table
+
 WHERE event_type = 'purchase' AND
-date_format(event_time, 'MM') = 10;**
+
+date_format(event_time, 'MM') = 10;
 
 We see that the Total Revenue in the month of ‘October 2019’ is xxxx
 
@@ -48,8 +50,9 @@ We see that the Total Revenue in the month of ‘October 2019’ is xxxx
 
 Find distinct categories of products. Categories with null category code can be ignored.
 
-**SELECT DISTINCT SPLIT(category_code,'\\.')[0] AS Category_List
-FROM table;**
+SELECT DISTINCT SPLIT(category_code,'\\.')[0] AS Category_List
+
+FROM table;
 
 ● We observe 6 different categories present namely; furniture, appliances, accessories, apparel, sport,
 stationery.
@@ -59,10 +62,13 @@ and located the first index alone, which contained the main Category.
 
 Find the total number of products available under each category.
 
-**SELECT SPLIT(category_code,'\\.')[0] AS Category, COUNT(product_id) AS Total_Product_count
+SELECT SPLIT(category_code,'\\.')[0] AS Category, COUNT(product_id) AS Total_Product_count
+
 FROM table
+
 GROUP BY SPLIT(category_code,'\\.')[0]
-ORDER BY Total_Product_count DESC;**
+
+ORDER BY Total_Product_count DESC;
 
 
 ![image](https://github.com/Arooba-Khokhar/Performance-Marketing-Analyst/assets/14163981/fdbfd447-e3d5-491a-9f08-40ebaa46ab6a)
@@ -81,12 +87,17 @@ sense as sports category would not contain many cosmetic products.
 
 Which brand had the maximum sales in October and November combined?
 
-**SELECT brand, ROUND(SUM(price),2) as Total_sales
+SELECT brand, ROUND(SUM(price),2) as Total_sales
+
 FROM table
+
 WHERE event_type = 'purchase'
+
 GROUP BY brand
+
 ORDER BY Total_sales desc
-LIMIT 5;**
+
+LIMIT 5;
 
 
 ![image](https://github.com/Arooba-Khokhar/Performance-Marketing-Analyst/assets/14163981/a494265a-90a6-4633-ac21-63fcfd0502fd)
@@ -103,12 +114,17 @@ LIMIT 5;**
 
 Your company wants to reward the top 10 users of its website with a Golden Customer plan.
 
-**SELECT user_id, ROUND(SUM(price),2) as Total_money_spent
+SELECT user_id, ROUND(SUM(price),2) as Total_money_spent
+
 FROM table
+
 WHERE event_type = 'purchase'
+
 GROUP BY user_id
+
 ORDER BY Total_money_spent DESC
-LIMIT 10;**
+
+LIMIT 10;
 
 
 
